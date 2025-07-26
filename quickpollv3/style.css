@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+input, button {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+button {
+  background: #f5f6fa;
+  color: #222;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+button:hover, button:focus {
+  background: #e1e8ed;
+  color: #111;
+  border-color: #888;
+}
+
+#viewOptions input[type="radio"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.bar-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 4px 0;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+.bar {
+  background: #2575fc;
+  height: 100%;
+  transition: width 0.8s cubic-bezier(.4,0,.2,1), background 0.5s;
+  border-radius: 4px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  opacity: 0;
+  animation: fadein 0.8s forwards;
+}
+.bar-label {
+  position: absolute;
+  right: 8px;
+  z-index: 2;
+  color: #111;
+  font-weight: 500;
+  background: transparent;
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Theme: Green */
+.theme-green {
+  background: linear-gradient(to right, #b2f0c9, #a0e9e0) !important;
+}
+.theme-green .card {
+  background: #f6fff7;
+}
+.theme-green .bar {
+  background: #7ed6a5;
+}
+
+/* Theme: Orange */
+.theme-orange {
+  background: linear-gradient(to right, #ffe0b2, #ffd699) !important;
+}
+.theme-orange .card {
+  background: #fffaf3;
+}
+.theme-orange .bar {
+  background: #ffb347;
+}
+
+/* Theme: Dark */
+.theme-dark {
+  background: linear-gradient(to right, #3a3a3a, #5a5a5a) !important;
+}
+.theme-dark .card {
+  background: #232526;
+  color: #fff;
+}
+.theme-dark input, .theme-dark button {
+  background: #414345;
+  color: #fff;
+  border: 1px solid #666;
+}
+.theme-dark .bar {
+  background: #888;
+}

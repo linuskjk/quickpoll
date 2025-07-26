@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuickPoll</title>
+  <link rel="stylesheet" href="style.css?v=17"/>
+  <link rel="icon" type="image/svg+xml" href="quickpoll-logo.svg" />
+  <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-core.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-pie.min.js"></script>
+</head>
+<body>
+  <div class="card">
+    <h1>QuickPoll</h1>
+
+    <div id="createSection">
+      <input id="pollTitle" placeholder="Poll Title" />
+      <div id="options">
+        <input placeholder="Option 1" class="option" />
+        <input placeholder="Option 2" class="option" />
+      </div>
+      <label for="themeSelect" style="margin-top:0.5rem;">Theme:</label>
+      <select id="themeSelect" style="margin-bottom:0.5rem;">
+        <option value="default">Blue/Purple (Default)</option>
+        <option value="green">Green</option>
+        <option value="orange">Orange</option>
+        <option value="dark">Dark</option>
+      </select>
+      <button onclick="addOption()">➕ Add Option</button>
+      <label style="margin-top:0.5rem;">
+        <input type="checkbox" id="multipleChoice" />
+        Allow multiple selections
+      </label>
+      <button onclick="createPoll()">Create Poll</button>
+    </div>
+
+    <div id="linkSection" style="display:none;">
+      <p>Your poll link:</p>
+      <input id="pollLink" readonly />
+      <button id="copyLinkBtn" style="margin-bottom:0.5rem;">Copy Link</button>
+      <button id="sharePollBtn" style="margin-bottom:0.5rem;">Share Poll</button>
+      <div id="creatorVotes" style="margin-top:0.5rem;font-weight:bold;"></div>
+      <div id="creatorChart" style="margin-top:0.5rem;"></div>
+      <button id="creatorToggleChartBtn" style="margin-top:0.5rem;">Switch to Pie Chart</button>
+      <button id="exportCSVBtn" style="margin-bottom:0.5rem;">Export as CSV</button>
+      <button id="exportImageBtn" style="margin-bottom:0.5rem;">Export Chart as Image</button>
+      <button id="editPollBtn" style="margin-bottom:0.5rem;">Edit Poll</button>
+    </div>
+
+    <div id="pollView" style="display:none;">
+      <h2 id="viewTitle"></h2>
+      <div id="viewOptions"></div>
+      <button onclick="submitVote()">Submit Vote</button>
+    </div>
+
+    <div id="resultsView" style="display:none;">
+      <h2>Results</h2>
+      <div id="resultList"></div>
+      <div id="resultVotes" style="margin-top:0.5rem;font-weight:bold;"></div>
+      <div id="resultChart" style="margin-top:0.5rem;"></div>
+      <button id="resultToggleChartBtn" style="margin-top:0.5rem;">Switch to Pie Chart</button>
+    </div>
+  </div>
+
+  <script src="script.js?v=17"></script>
+  <script>
+    // Inside the function where you create the vote inputs
+    var isMultiple = document.getElementById("multipleChoice").checked;
+    for (let i = 0; i < options.length; i++) {
+      let input = document.createElement("input");
+      input.type = isMultiple ? "checkbox" : "radio";
+      input.name = "vote";
+      input.value = i;
+      // Append the input to the viewOptions or wherever it's supposed to go
+    }
+  </script>
+</body>
+</html>
